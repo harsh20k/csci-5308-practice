@@ -12,5 +12,6 @@ class Taskk:
         return self.assignedTo
 
     def updateStatus(self,status):
-        return "pending"
+        self.status = status
+        return self.status
 
