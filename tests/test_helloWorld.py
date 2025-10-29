@@ -19,9 +19,12 @@ from main import Taskk
 
 Taskka = Taskk()
 
-def test_task_assignment_function():
-    assert Taskka.assignTo("harsh") is True
+def test_task_assignment():
+    assert type(Taskka.assignTo("harsh")) == str
 
 def test_task_assignment_function():
     Taskka.assignTo("pandey")
     assert Taskka.assignTo("pandey") == "pandey"
+
+def test_update_status():
+    assert Taskka.updateStatus("pending") is True
