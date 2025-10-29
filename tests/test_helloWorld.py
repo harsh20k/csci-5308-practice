@@ -1,6 +1,8 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+import pytest
+
 from main import Taskk
 
 #Requirements
@@ -29,3 +31,13 @@ def test_task_assignment_function():
 def test_update_status():
     assert Taskka.updateStatus("pending") == "pending"
 
+@pytest.mark.parametrize(
+                            "string,expected",
+                            [
+                                ("pending", "pending"),
+                                ("removed", "removed"),
+                                ("delayed", "delayed"),
+                            ],
+                        )
+def test_update_status(string,expected):
+    assert Taskka.updateStatus(string) == expected
