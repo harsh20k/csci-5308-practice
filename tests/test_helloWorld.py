@@ -27,4 +27,5 @@ def test_task_assignment_function():
     assert Taskka.assignTo("pandey") == "pandey"
 
 def test_update_status():
-    assert Taskka.updateStatus("pending") is True
+    assert Taskka.updateStatus("pending") == "pending"
+
