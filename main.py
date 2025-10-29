@@ -7,7 +7,5 @@ class Taskk:
     assignedTo = "harsh"
 
     def assignTo(self,team_member):
-        return True
-
-
-
+        self.assignedTo = team_member
+        return self.assignedTo

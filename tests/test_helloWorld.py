@@ -22,4 +22,6 @@ Taskka = Taskk()
 def test_task_assignment_function():
     assert Taskka.assignTo("harsh") is True
 
-
+def test_task_assignment_function():
+    Taskka.assignTo("pandey")
+    assert Taskka.assignTo("pandey") == "pandey"
