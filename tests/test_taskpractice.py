@@ -1,9 +1,13 @@
 import sys, os
+from datetime import timedelta
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from sqlite3 import Date as date
 
 import pytest
 
-from main import Taskk
+from Taskpractice import Taskk
 
 #Requirements
 
@@ -19,7 +23,7 @@ from main import Taskk
 #Make reasonable assumptions if any information seem missing.
 
 
-Taskka = Taskk()
+Taskka = Taskk("rajeev","ongoing",date.today() - timedelta(days=2))
 
 def test_task_assignment():
     assert type(Taskka.assignTo("harsh")) == str
@@ -43,5 +47,15 @@ def test_update_status(string,expected):
     assert Taskka.updateStatus(string) == expected
 
 def test_is_overdue():
-    assert Taskka.is_overdue() is False
-    
+    assert Taskka.isOverdue() is False
+
+def test_is_overdue_false():
+    task = Taskk("rajeev","ongoing",date.today() + timedelta(days=2))
+    assert task.isOverdue() is True
+
+def test_is_overdue_true():
+    task = Taskk("rajeev","ongoing",date.today() - timedelta(days=2))
+    assert task.isOverdue() is False
+
+
+
