@@ -41,3 +41,7 @@ def test_update_status():
                         )
 def test_update_status(string,expected):
     assert Taskka.updateStatus(string) == expected
+
+def test_is_overdue():
+    assert Taskka.is_overdue() is False
+    
